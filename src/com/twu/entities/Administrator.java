@@ -1,7 +1,7 @@
 package com.twu.entities;
 
-public class Adminnistrator {
-    public Adminnistrator() {
+public class Administrator {
+    public Administrator() {
     }
 
     public String getName() {
