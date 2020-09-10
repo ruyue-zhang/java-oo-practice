@@ -14,7 +14,7 @@ public class TopSearchManager {
     }
 
     public List<TopSearch> getTopSearchList() {
-        List<TopSearch> list = this.topSearchList.stream().sorted(Comparator.comparingInt(TopSearch::getVoteCount)).collect(Collectors.toList());
+        List<TopSearch> list = this.topSearchList.stream().sorted((h1, h2) -> h2.getVoteCount() - h1.getVoteCount()).collect(Collectors.toList());
         List<TopSearch> newSortTopSearch = new ArrayList<>();
         for (TopSearch topSearch : list) {
             if(topSearch.isBuyTopSearch()) {
