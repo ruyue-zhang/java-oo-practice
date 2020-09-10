@@ -4,6 +4,7 @@ public class TopSearch {
     private String content;
     private int voteCount;
     private int price;
+    private int rank;
     private boolean buyHotSearch;
     private boolean isSuperHotSearch;
 
@@ -42,6 +43,14 @@ public class TopSearch {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
     public boolean isBuyHotSearch() {
