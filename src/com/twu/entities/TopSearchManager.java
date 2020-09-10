@@ -1,5 +1,7 @@
 package com.twu.entities;
 
+import com.twu.exceptions.VoteFailException;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -37,5 +39,47 @@ public class TopSearchManager {
 
     public void setTopSearchList(List<TopSearch> topSearchList) {
         this.topSearchList = topSearchList;
+    }
+
+    //1.查看热搜
+    public void displayTopSearch() {
+        List<TopSearch> topSearchList = getTopSearchList();
+        topSearchList.forEach(i -> System.out.println(topSearchList.indexOf(i) + 1 + " " + i));
+    }
+
+
+    //2.添加热搜
+    public void addTopSearch(TopSearch topSearch) {
+        this.topSearchList.add(topSearch);
+    }
+
+    //3.添加超级热搜
+    public void addSuperTopSearch(TopSearch topSearch) {
+        this.topSearchList.add(topSearch);
+    }
+
+    //4.给热搜投票
+    public void voteTopSearch(User user, String content, int vote) {
+        if (vote > user.getVoteNumber()) {
+            throw new VoteFailException("投票失败：剩余票数不足");
+        } else {
+            boolean isTopSearchExist = false;
+            for (TopSearch topSearch : topSearchList) {
+                if(topSearch.getContent().equals(content)) {
+                    int voteCount = vote;
+                    if (topSearch.isSuperTopSearch()) {
+                        voteCount = vote * 2;
+                    }
+                    user.setVoteNumber(user.getVoteNumber() - vote);
+                    topSearch.setVoteCount(voteCount + topSearch.getVoteCount());
+                    isTopSearchExist = true;
+                    System.out.println("投票成功！");
+                    break;
+                }
+            }
+            if (!isTopSearchExist) {
+                throw new VoteFailException("投票失败：热搜不存在");
+            }
+        }
     }
 }
