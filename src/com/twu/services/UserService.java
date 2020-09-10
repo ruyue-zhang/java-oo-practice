@@ -31,16 +31,16 @@ public class UserService {
                 }
                 mainPage(user);
                 break;
-//            case "3":
-//                System.out.println("请输入你要购买的热搜名称:");
-//                String contentToBuy = scanner.next();
-//                System.out.println("请输入你要购买的热搜名次:");
-//                int ranking = scanner.nextInt();
-//                System.out.println("请输入你要购买的热搜金额");
-//                int price = scanner.nextInt();
-//                TopSearchRepository.topSearchManager.buyTopSearch(contentToBuy, ranking, price);
-//                mainPage(user);
-//                break;
+            case "3":
+                System.out.println("请输入你要购买的热搜名称:");
+                String contentToBuy = scanner.next();
+                System.out.println("请输入你要购买的热搜名次:");
+                int ranking = scanner.nextInt();
+                System.out.println("请输入你要购买的热搜金额");
+                int price = scanner.nextInt();
+                TopSearchRepository.topSearchManager.buyTopSearch(contentToBuy, ranking, price);
+                mainPage(user);
+                break;
             case "4":
                 System.out.println("请输入你要添加的热搜内容：");
                 String contentToAdd = scanner.next();

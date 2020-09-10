@@ -77,4 +77,21 @@ public class TopSearchManager {
             }
         }
     }
+
+    public void buyTopSearch(String content, int ranking, int price) {
+        boolean canBuyIt = false;
+        List<TopSearch> hotSearchList = getTopSearchList();
+        for (TopSearch topSearch : topSearchList) {
+            if (topSearch.getContent().equals(content) && price > hotSearchList.get(ranking - 1).getPrice()) {
+                canBuyIt = true;
+                topSearch.setBuyTopSearch(true);
+                topSearch.setRank(ranking);
+                topSearch.setPrice(price);
+                if (topSearchList.get(ranking - 1).isBuyTopSearch()) {
+                    topSearchList.remove(ranking - 1);
+                }
+            }
+        }
+        System.out.println(canBuyIt ? "购买成功" : "购买失败");
+    }
 }
