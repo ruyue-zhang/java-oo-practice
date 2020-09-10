@@ -41,24 +41,19 @@ public class TopSearchManager {
         this.topSearchList = topSearchList;
     }
 
-    //1.查看热搜
     public void displayTopSearch() {
         List<TopSearch> topSearchList = getTopSearchList();
         topSearchList.forEach(i -> System.out.println(topSearchList.indexOf(i) + 1 + " " + i));
     }
 
-
-    //2.添加热搜
     public void addTopSearch(TopSearch topSearch) {
         this.topSearchList.add(topSearch);
     }
 
-    //3.添加超级热搜
     public void addSuperTopSearch(TopSearch topSearch) {
         this.topSearchList.add(topSearch);
     }
 
-    //4.给热搜投票
     public void voteTopSearch(User user, String content, int vote) {
         if (vote > user.getVoteNumber()) {
             throw new VoteFailException("投票失败：剩余票数不足");
