@@ -5,20 +5,20 @@ public class TopSearch {
     private int voteCount;
     private int price;
     private int rank;
-    private boolean buyHotSearch;
-    private boolean isSuperHotSearch;
+    private boolean buyTopSearch;
+    private boolean isSuperTopSearch;
 
     public TopSearch(String content) {
         this.content = content;
         this.voteCount = 0;
         this.price = 0;
-        this.buyHotSearch = false;
-        this.isSuperHotSearch = false;
+        this.buyTopSearch = false;
+        this.isSuperTopSearch = false;
     }
 
-    public TopSearch(String content, boolean isSuperHotSearch) {
+    public TopSearch(String content, boolean isSuperTopSearch) {
         this.content = content;
-        this.isSuperHotSearch = isSuperHotSearch;
+        this.isSuperTopSearch = isSuperTopSearch;
     }
 
     public String getContent() {
@@ -53,20 +53,20 @@ public class TopSearch {
         this.rank = rank;
     }
 
-    public boolean isBuyHotSearch() {
-        return buyHotSearch;
+    public boolean isBuyTopSearch() {
+        return buyTopSearch;
     }
 
-    public void setBuyHotSearch(boolean buyHotSearch) {
-        this.buyHotSearch = buyHotSearch;
+    public void setBuyTopSearch(boolean buyTopSearch) {
+        this.buyTopSearch = buyTopSearch;
     }
 
-    public boolean isSuperHotSearch() {
-        return isSuperHotSearch;
+    public boolean isSuperTopSearch() {
+        return isSuperTopSearch;
     }
 
-    public void setSuperHotSearch(boolean superHotSearch) {
-        isSuperHotSearch = superHotSearch;
+    public void setSuperTopSearch(boolean superTopSearch) {
+        isSuperTopSearch = superTopSearch;
     }
 
     @Override
